@@ -1,6 +1,6 @@
 <project name="Sample usage of Salesforce Ant tasks" default="test" basedir="." xmlns:sf="antlib:com.salesforce">
 
-    <property file="I:/check/build.properties"/>
+    <property file="build.properties"/>
     <property environment="env"/>
 
     <!-- Setting default value for username, password and session id properties to empty string 
@@ -13,7 +13,7 @@
 
     <taskdef resource="com/salesforce/antlib.xml" uri="antlib:com.salesforce">
         <classpath>
-            <pathelement location="%ANT_HOME%/lib/ant-salesforce.jar" />        	
+            <pathelement location="ant-salesforce.jar" />        	
         </classpath>
     </taskdef>
 	
@@ -46,7 +46,7 @@
 
     <!-- Deploy the unpackaged set of metadata retrieved with retrieveUnpackaged and run tests in this organization's namespace only-->
     <target name="deployUnpackaged">
-      <sf:deploy username="${sf.username}" password="${sf.password}" sessionId="${sf.sessionId}" serverurl="${sf.serverurl}" maxPoll="${sf.maxPoll}" deployRoot="I:/check/retrieveUnpackaged" rollbackOnError="true"/>
+      <sf:deploy username="${sf.username}" password="${sf.password}" sessionId="${sf.sessionId}" serverurl="${sf.serverurl}" maxPoll="${sf.maxPoll}" deployRoot="src" rollbackOnError="true"/>
     </target>
 
     <!-- Deploy a zip of metadata files to the org -->
